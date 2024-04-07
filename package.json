@@ -1,0 +1,27 @@
+{
+  "name": "practice_react",
+  "version": "1.0.0",
+  "description": "This is ReactJs.",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "keywords": [
+    "ReactJs"
+  ],
+  "author": "Rajeev Ranjan Singh",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "browserslist": [
+    "last 2 version"
+  ]
+  
+}
