@@ -43,7 +43,7 @@
  * https://foodfire.onrender.com/api/menu?page-type=REGULAR_MENU&complete-menu=true&lat=21.1702401&lng=72.83106070000001&&submitAction=ENTER&restaurantId=804071
  */
 
- Two Types of Export/Import
+ Two Types of Export/Import 
 
  - Default Export/Import
  export default Component;
@@ -55,7 +55,7 @@
  import {Component} from "path";
 
  # React Hooks
- (Normal JavaScrpt functions)
+ (Normal JavaScrpt utility functions)
  - useState() 
  - useEffect()
 

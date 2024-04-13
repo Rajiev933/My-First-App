@@ -1,29 +1,39 @@
+import { useState } from "react";
 import { LOGO_URL } from "../utils/constant";
+import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [loginBtn, setLoginBtn] = useState("Login");
   return (
     <div className="header">
       <nav class="navbar">
         <div class="container">
           <div class="logo">
-            <img
-              src={LOGO_URL}
-              alt="Swiggy Logo"
-            />
+            <img src={LOGO_URL} alt="Swiggy Logo" />
           </div>
+
           <div class="nav-links">
             <ul>
               <li>
-                <a href="#">Home</a>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <a href="#">Offers</a>
+                <Link to="/about">About</Link>
               </li>
               <li>
-                <a href="#">Help</a>
+                <Link to="/contact">Contact</Link>
               </li>
               <li>
-                <a href="#">Login / Signup</a>
+                <Link
+                  
+                  onClick={() => {
+                    loginBtn === "Login"
+                      ? setLoginBtn("Logout")
+                      : setLoginBtn("Login");
+                  }}
+                >
+                  {loginBtn}
+                </Link>
               </li>
             </ul>
           </div>
