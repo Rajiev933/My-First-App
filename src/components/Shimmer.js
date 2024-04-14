@@ -1,33 +1,33 @@
 const Shimmer = () => {
   return (
-    <div class="card-container">
+    <div className="card-container">
       {/* <!-- Fake cards with shimmer effect --> */}
-      <div class="fake-card">
-        <div class="shimmer"></div>
+      <div className="fake-card">
+        <div className="shimmer"></div>
       </div>
-      <div class="fake-card">
-        <div class="shimmer"></div>
+      <div className="fake-card">
+        <div className="shimmer"></div>
       </div>
-      <div class="fake-card">
-        <div class="shimmer"></div>
+      <div className="fake-card">
+        <div className="shimmer"></div>
       </div>
-      <div class="fake-card">
-        <div class="shimmer"></div>
+      <div className="fake-card">
+        <div className="shimmer"></div>
       </div>
-      <div class="fake-card">
-        <div class="shimmer"></div>
+      <div className="fake-card">
+        <div className="shimmer"></div>
       </div>
-      <div class="fake-card">
-        <div class="shimmer"></div>
+      <div className="fake-card">
+        <div className="shimmer"></div>
       </div>
-      <div class="fake-card">
-        <div class="shimmer"></div>
+      <div className="fake-card">
+        <div className="shimmer"></div>
       </div>
-      <div class="fake-card">
-        <div class="shimmer"></div>
+      <div className="fake-card">
+        <div className="shimmer"></div>
       </div>
-      <div class="fake-card">
-        <div class="shimmer"></div>
+      <div className="fake-card">
+        <div className="shimmer"></div>
       </div>
     </div>
   );

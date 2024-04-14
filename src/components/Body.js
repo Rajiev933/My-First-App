@@ -3,6 +3,7 @@ import { resList } from "../utils/mocData";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   // State Variable - Super powerful variable
@@ -28,9 +29,12 @@ const Body = () => {
     );
   };
 
-  return listOfRestaurants.length === 0 ? (
-    <Shimmer />
-  ) : (
+  const onlineStatus = useOnlineStatus();
+
+  if(onlineStatus === false) return <h1>Looks like you are offline. Please check your internet..</h1>
+
+  return listOfRestaurants.length === 0 ? <Shimmer /> : 
+   (
     <div className="body">
       <div className="filter">
         <div className="search">
@@ -45,11 +49,11 @@ const Body = () => {
           <button
             onClick={() => {
               console.log(searchText);
-              const filteredRestaurants = listOfRestaurants.filter(
-                (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()) 
+              const filteredRestaurants = listOfRestaurants.filter((res) =>
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
 
-              setFilteredRestaurants(filteredRestaurants)
+              setFilteredRestaurants(filteredRestaurants);
             }}
           >
             Search
@@ -58,11 +62,11 @@ const Body = () => {
         <button
           className="filter-btn"
           onClick={() => {
-            //Filter Logic Here
+            // Filter Logic Here
             const filteredList = listOfRestaurants.filter(
               (res) => res.info.avgRating > 4
             );
-            setListOfRestaurants(filteredList);
+            setFilteredRestaurants(filteredList);
           }}
         >
           Top Rated Button
@@ -70,7 +74,13 @@ const Body = () => {
       </div>
       <div className="restaurant-cards">
         {filteredRestaurants.map((restaurant) => (
-          <Link className="card" to={"/restaurants/"+restaurant.info.id } key={restaurant.info.id}><RestaurantCard resData={restaurant} /></Link>
+          <Link
+            className="card"
+            to={"/restaurants/" + restaurant.info.id}
+            key={restaurant.info.id}
+          >
+            <RestaurantCard resData={restaurant} />
+          </Link>
         ))}
       </div>
     </div>

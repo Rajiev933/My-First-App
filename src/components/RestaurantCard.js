@@ -6,11 +6,11 @@ const RestaurantCard = (props) => {
   return (
     <>
       <div className="container">
-        <div class="restaurant-card">
-          <div class="restaurant-img">
+        <div className="restaurant-card">
+          <div className="restaurant-img">
             <img src={CDN_URL + cloudinaryImageId} alt="Restaurant Image" />
           </div>
-          <div class="restaurant-details">
+          <div className="restaurant-details">
             <h2>{name}</h2>
 
             <h2>
