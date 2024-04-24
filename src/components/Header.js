@@ -8,17 +8,20 @@ const Header = () => {
 
   const onlineStatus = useOnlineStatus();
   return (
-    <div className="header">
+    <div className="header w-screen bg-orange-400 shadow-lg">
       <nav className="navbar">
-        <div className="container">
-          <div className="logo">
-            <img src={LOGO_URL} alt="Swiggy Logo" />
-          </div>
+        <div className="container flex justify-between items-center ml-40 w-2/3">
+          <img className=" h-20" src={LOGO_URL} alt="Swiggy Logo" />
 
           <div className="nav-links">
-            <ul>
+            <ul className="flex m-5 gap-4">
               <li>
-                Online Status: {onlineStatus ? <h3 style={{color: "Green"}}>Online</h3>:<h3 style={{color: "Red"}}>Offline</h3>}
+                Online Status:{" "}
+                {onlineStatus ? (
+                  <h3 style={{ color: "Green" }}>Online</h3>
+                ) : (
+                  <h3 style={{ color: "Red" }}>Offline</h3>
+                )}
               </li>
               <li>
                 <Link to="/">Home</Link>
@@ -34,7 +37,6 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                  
                   onClick={() => {
                     loginBtn === "Login"
                       ? setLoginBtn("Logout")
