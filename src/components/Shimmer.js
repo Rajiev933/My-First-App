@@ -1,34 +1,15 @@
 const Shimmer = () => {
   return (
-    <div className="card-container">
-      {/* <!-- Fake cards with shimmer effect --> */}
-      <div className="fake-card">
-        <div className="shimmer"></div>
-      </div>
-      <div className="fake-card">
-        <div className="shimmer"></div>
-      </div>
-      <div className="fake-card">
-        <div className="shimmer"></div>
-      </div>
-      <div className="fake-card">
-        <div className="shimmer"></div>
-      </div>
-      <div className="fake-card">
-        <div className="shimmer"></div>
-      </div>
-      <div className="fake-card">
-        <div className="shimmer"></div>
-      </div>
-      <div className="fake-card">
-        <div className="shimmer"></div>
-      </div>
-      <div className="fake-card">
-        <div className="shimmer"></div>
-      </div>
-      <div className="fake-card">
-        <div className="shimmer"></div>
-      </div>
+    <div className="shimer ml-40 mt-20 flex flex-wrap gap-2">
+      <div className="container mt-20 h-[350] w-[250] border bg-slate-100"></div>
+      <div className="container mt-20 h-[350] w-[250] border bg-slate-100"></div>
+      <div className="container mt-20 h-[350] w-[250] border bg-slate-100"></div>
+      <div className="container mt-20 h-[350] w-[250] border bg-slate-100"></div>
+      <div className="container mt-20 h-[350] w-[250] border bg-slate-100"></div>
+      <div className="container mt-20 h-[350] w-[250] border bg-slate-100"></div>
+      <div className="container mt-20 h-[350] w-[250] border bg-slate-100"></div>
+      <div className="container mt-20 h-[350] w-[250] border bg-slate-100"></div>
+      <div className="container mt-20 h-[350] w-[250] border bg-slate-100"></div>
     </div>
   );
 };

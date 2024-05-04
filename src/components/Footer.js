@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
-    <footer className="w-full h-[50px] bg-orange-400">
-      <div className="container mt-10 ml-40 w-2/3 flex justify-between ">
+    <footer className="w-full h-fit bg-orange-400">
+      <div className="container mt-10 ml-40 w-2/3 flex justify-between md:gap-10">
         <ul className="flex gap-5 mt-3">
           <li>
             <a href="#">About Us</a>

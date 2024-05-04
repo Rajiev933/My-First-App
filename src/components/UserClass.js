@@ -13,14 +13,14 @@ class UserClass extends React.Component {
 
       }
     }
-    console.log("child constructor")
+    // console.log("child constructor")
   }
 
   async componentDidMount(){
     this.timer = setInterval(() => {
-      console.log("Namste React OP")
+      // console.log("Namste React OP")
     }, 1000);
-    console.log("child component did mount")
+    // console.log("child component did mount")
 
     const data =await fetch("https://api.github.com/users/rajiev933");
     const json = await data.json();
@@ -28,25 +28,25 @@ class UserClass extends React.Component {
     this.setState({
       userInfo: json
     })
-    console.log(json);
+    // console.log(json);
   }
   componentDidUpdate(prevProps, prevState){
     if(this.state.userInfo !== prevState.userInfo || this.state.userInfo !== prevState.userInfo){
       // code
     }
-    console.log("component did update");
+    // console.log("component did update");
   }
   componentWillUnmount(){
     clearInterval(this.timer)
-    console.log("component will unmount");
+    // console.log("component will unmount");
   }
 
   render(){
-    console.log("child render")
+    // console.log("child render")
     const { name, location,avatar_url } = this.state.userInfo;
     return(
-      <div className="container">
-      <div className="user-card">
+      <div className="">
+      <div className="">
         <img src={avatar_url} />
         <h2>Name: {name}</h2>
         <h3>Location: {location}</h3>

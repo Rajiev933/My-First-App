@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { LOGO_URL } from "../utils/constant";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [loginBtn, setLoginBtn] = useState("Login");
 
   const onlineStatus = useOnlineStatus();
+
+  const {loggedInUser} = useContext(UserContext);
+  
+
   return (
     <div className="header w-screen bg-orange-400 shadow-lg">
       <nav className="navbar">
@@ -45,6 +50,9 @@ const Header = () => {
                 >
                   {loginBtn}
                 </Link>
+              </li>
+              <li>
+                <Link className="font-bold">{loggedInUser}</Link>
               </li>
             </ul>
           </div>

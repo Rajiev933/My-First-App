@@ -1,4 +1,6 @@
+import { useState } from "react";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantsCategory";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 
@@ -7,7 +9,11 @@ const RestaurantMenu = () => {
 
   const resInfo = useRestaurantMenu(resId);
 
+  const [showIndex, setShowIndex] = useState(null);
+
   if (resInfo === null) return <Shimmer />;
+
+ 
 
   const { name, costForTwoMessage, totalRatingsString, avgRating, cuisines } =
     resInfo?.cards[2]?.card?.card?.info;
@@ -15,34 +21,37 @@ const RestaurantMenu = () => {
   const { itemCards } =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
 
+  
+
+  const categories =
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR.cards.filter(
+      (c) =>
+        c.card?.card?.["@type"] ==
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+  
   return (
-    <div className="menu">
+    <div className="menu text-center">
       <div className="restaurant-info">
-        <h1>{name}</h1>
+        <h1 className=" font-bold my-6 text-2xl">{name}</h1>
         <div className="outlet">
-          <h3>
+          <p className="font-bold text-lg">
             ⭐{avgRating} {`(${totalRatingsString})`} • {costForTwoMessage}
-          </h3>
-          <h3>{cuisines.join(", ")}</h3>
-          <h3></h3>
+          </p>
+          <p className="font-bold text-lg">{cuisines.join(", ")}</p>
         </div>
-        {/* Add other restaurant details here */}
       </div>
+      {/* categories accordians */}
       <div className="menu-items">
-        <h2>Menu</h2>
         <ul>
-          {itemCards.map((menuItem) => (
-            <li key={menuItem.card.info.id}>
-              <div className="menu-item">
-                <div className="item-name">{menuItem.card.info.name}</div>
-                <div className="item-name">
-                  {menuItem.card.info.description}
-                </div>
-                <div className="item-price">
-                  ₹ {menuItem.card.info.defaultPrice / 100}
-                </div>
-              </div>
-            </li>
+          {categories.map((category,index) => (
+            //controlled component
+            <RestaurantCategory
+              key={category?.card?.card?.title}
+              data={category?.card?.card}
+              showItems={index === showIndex ? true : false}
+              setShowIndex={()=>setShowIndex(index)}
+            />
           ))}
         </ul>
       </div>
