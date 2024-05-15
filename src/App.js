@@ -11,6 +11,9 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import Footer from "./components/Footer";
 import Shimmer from "./components/Shimmer";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 //import Grocery from "./components/Grocery";
 
 // Chunkimg
@@ -30,14 +33,15 @@ const AppLayout = () => {
     setUserName(data.myName);
   });
   return (
-    <UserContext.Provider value={{loggedInUser: userName, setUserName}}>
-      <div className="app font-serif text-lg">
-      <UserContext.Provider value={{loggedInUser: "Elon musk"}}>
-        <Header /></UserContext.Provider>
-        <Outlet />
-        <Footer />
-      </div>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="app font-serif text-lg">
+          <Header />
+          <Outlet />
+          <Footer />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
@@ -69,6 +73,10 @@ const appRouter = createBrowserRouter([
             <Grocery />
           </Suspense>
         ),
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,
